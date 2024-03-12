@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:zomato/src/utils/contants/app_constants.dart';
 
+import '../../../../core/utility/app_string.dart';
+
 class SpalshScreen extends StatefulWidget {
   const SpalshScreen({super.key});
 
@@ -21,12 +23,12 @@ class _SpalshScreenState extends State<SpalshScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset(
-               AppConstants.logo1,
+                AppString.logo1,
                 width: 200,
               ),
               const SizedBox(height: 20),
               Text(
-                AppConstants.carbon,
+                AppString.carbon,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                     color: Color.fromARGB(179, 248, 248, 248),
@@ -35,7 +37,7 @@ class _SpalshScreenState extends State<SpalshScreen> {
               ),
         
                const SizedBox(height: 30),
-               Image.asset(AppConstants.logo2,width: 150,)
+               Image.asset(AppString.logo2,width: 150,)
             ],
           ),
         ),
@@ -45,7 +47,7 @@ class _SpalshScreenState extends State<SpalshScreen> {
             child: Opacity(
               opacity: 0.1,
               child: Image.asset(
-                AppConstants.spalshBirds,
+                AppString.spalshBirds,
                 width: 200,
               ),
             ),

@@ -7,6 +7,8 @@ import 'package:zomato/src/presentation/ui/authScreen/widgets/rounded_elevated_b
 import 'package:zomato/src/presentation/ui/authScreen/widgets/signup_logo.dart';
 import 'package:zomato/src/utils/contants/app_constants.dart';
 
+import '../../../../core/utility/app_string.dart';
+
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
 
@@ -49,14 +51,14 @@ class _SignupScreenState extends State<SignupScreen> {
                     bottomLeft: Radius.circular(50.0),
                     bottomRight: Radius.circular(50.0),
                   ),
-                  child: Image.asset(AppConstants.zomatoimage)),
+                  child: Image.asset(AppString.zomatoimage)),
               const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Column(
                   children: [
                     Text(
-                      AppConstants.no1,
+                      AppString.no1,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                           fontSize: 28, fontWeight: FontWeight.bold),
@@ -73,7 +75,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           ),
                         ),
                         Text(
-                          AppConstants.loginorsignup,
+                          AppString.loginorsignup,
                           style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
@@ -178,13 +180,13 @@ class _SignupScreenState extends State<SignupScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         SignUpLogo(
-                          imagePath: AppConstants.googleicon,
+                          imagePath: AppString.googleicon,
                         ),
                         SignUpLogo(
-                          imagePath: AppConstants.appleicon,
+                          imagePath: AppString.appleicon,
                         ),
                         SignUpLogo(
-                          imagePath: AppConstants.moreverticon,
+                          imagePath: AppString.moreverticon,
                         )
                       ],
                     ),
@@ -198,21 +200,21 @@ class _SignupScreenState extends State<SignupScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text(AppConstants.continuing,
+                    Text(AppString.continuing,
                         style: TextStyle(
                             fontSize: 14, color: Colors.grey.shade900)),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(AppConstants.terms,
+                        Text(AppString.terms,
                             style: TextStyle(
                                 fontSize: 10, color: Colors.grey.shade900)),
                         const SizedBox(width: 10),
-                        Text(AppConstants.privacy,
+                        Text(AppString.privacy,
                             style: TextStyle(
                                 fontSize: 10, color: Colors.grey.shade900)),
                         const SizedBox(width: 10),
-                        Text(AppConstants.content,
+                        Text(AppString.content,
                             style: TextStyle(
                                 fontSize: 10, color: Colors.grey.shade900)),
                       ],
