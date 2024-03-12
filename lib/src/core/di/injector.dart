@@ -1,8 +1,5 @@
 
 import 'package:get_it/get_it.dart';
-
-import '../service/api_service.dart';
-
 final GetIt injector = GetIt.instance;
 
 Future<void> initializeDependencies() async {

@@ -1,8 +1,6 @@
-
 import 'dart:async';
 import 'dart:developer';
 import 'package:dio/dio.dart';
-
 import '../utility/app_url.dart';
 
 class ApiService {
