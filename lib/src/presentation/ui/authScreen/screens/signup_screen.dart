@@ -9,7 +9,11 @@ import 'package:zomato/src/presentation/ui/authScreen/widgets/signup_logo.dart';
 import '../../../../core/utility/app_string.dart';
 
 class SignupScreen extends StatefulWidget {
-  const SignupScreen({super.key});
+  final String userId;
+  final String userName;
+  const SignupScreen({super.key, 
+  required this.userId, 
+  required this.userName});
 
   @override
   State<SignupScreen> createState() => _SignupScreenState();
@@ -38,6 +42,8 @@ class _SignupScreenState extends State<SignupScreen> {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint(widget.userId);
+    debugPrint(widget.userName);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: Stack(
