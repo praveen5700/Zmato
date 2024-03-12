@@ -5,7 +5,6 @@ import 'package:zomato/src/presentation/ui/authScreen/widgets/custom_mobile_text
 import 'package:zomato/src/presentation/ui/authScreen/widgets/flag_dropdown.dart';
 import 'package:zomato/src/presentation/ui/authScreen/widgets/rounded_elevated_button.dart';
 import 'package:zomato/src/presentation/ui/authScreen/widgets/signup_logo.dart';
-import 'package:zomato/src/utils/contants/app_constants.dart';
 
 import '../../../../core/utility/app_string.dart';
 
