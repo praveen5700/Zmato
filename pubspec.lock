@@ -49,6 +49,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.18.0"
+  country_calling_code_picker:
+    dependency: "direct main"
+    description:
+      name: country_calling_code_picker
+      sha256: b9afd68e79f38953c463e8ea104533c1b9fc7b37e0948b501f9a7ad6a9a830a5
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.0.1"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -86,6 +94,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
+  flutter_sim_country_code:
+    dependency: transitive
+    description:
+      name: flutter_sim_country_code
+      sha256: fd6233ad01b811f5d2845c5b1c18120488417f2882a84df602daa65324e8371e
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.2"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -218,4 +234,4 @@ packages:
     version: "0.3.0"
 sdks:
   dart: ">=3.2.6 <4.0.0"
-  flutter: ">=1.16.0"
+  flutter: ">2.0.0"
