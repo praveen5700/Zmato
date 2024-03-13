@@ -10,9 +10,7 @@ import '../../../../core/utility/app_string.dart';
 class SignupScreen extends StatefulWidget {
   final String userId;
   final String userName;
-  const SignupScreen({super.key, 
-  required this.userId, 
-  required this.userName});
+  const SignupScreen({super.key, required this.userId, required this.userName});
 
   @override
   State<SignupScreen> createState() => _SignupScreenState();
@@ -45,17 +43,61 @@ class _SignupScreenState extends State<SignupScreen> {
     debugPrint(widget.userName);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Stack(
-        children: [
-          Column(
+      body: SingleChildScrollView(
+        child: SizedBox(
+          height: size.height,
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              ClipRRect(
-                  borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(50.0),
-                    bottomRight: Radius.circular(50.0),
-                  ),
-                  child: Image.asset(AppString.zomatoimage)),
+              SizedBox(
+                child: Stack(
+                  children: [
+                    ClipRRect(
+                        borderRadius: const BorderRadius.only(
+                          bottomLeft: Radius.circular(50.0),
+                          bottomRight: Radius.circular(50.0),
+                        ),
+                        child: Image.asset(AppString.zomatoimage)),
+                    Positioned(
+                      right: 30,
+                      top: 50,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: const Color.fromARGB(128, 0, 0, 0),
+                        ),
+                        child: const Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10.0, vertical: 4.0),
+                          child: Text(
+                            'Skip',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 30,
+                      top: 50,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: Color.fromARGB(177, 0, 0, 0),
+                        ),
+                        child: const Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 10.0, vertical: 4.0),
+                            child: Icon(
+                              Icons.sign_language,
+                              color: Colors.white,
+                            )),
+                      ),
+                    )
+                  ],
+                ),
+              ),
               const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -227,8 +269,8 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
               ))
             ],
-          )
-        ],
+          ),
+        ),
       ),
     );
   }
@@ -242,4 +284,3 @@ class _SignupScreenState extends State<SignupScreen> {
     }
   }
 }
-

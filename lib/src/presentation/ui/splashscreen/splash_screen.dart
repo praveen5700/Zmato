@@ -21,7 +21,7 @@ class _SpalshScreenState extends State<SpalshScreen> {
      // data passing through queryparameter
    //context.go('/signup?userName=praveen&id=2');
 
-   context.go(RouteConstants.motpverifctn);
+   context.go(RouteConstants.signup);
 
 
     });
