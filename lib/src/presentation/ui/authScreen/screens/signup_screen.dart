@@ -44,6 +44,7 @@ class _SignupScreenState extends State<SignupScreen> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
+        //physics: ScrollBehavior._bouncingDesktopPhysics,
         child: SizedBox(
           height: size.height,
           child: Column(
