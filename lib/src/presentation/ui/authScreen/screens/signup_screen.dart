@@ -5,7 +5,6 @@ import 'package:zomato/src/presentation/ui/authScreen/widgets/custom_mobile_text
 import 'package:zomato/src/presentation/ui/authScreen/widgets/flag_dropdown.dart';
 import 'package:zomato/src/presentation/ui/authScreen/widgets/rounded_elevated_button.dart';
 import 'package:zomato/src/presentation/ui/authScreen/widgets/signup_logo.dart';
-
 import '../../../../core/utility/app_string.dart';
 
 class SignupScreen extends StatefulWidget {
@@ -244,54 +243,3 @@ class _SignupScreenState extends State<SignupScreen> {
   }
 }
 
-// child: TextFormField(
-//   controller: mobileNumber,
-//   keyboardType: TextInputType.number,
-//   autovalidateMode: AutovalidateMode
-//       .onUserInteraction,
-//   inputFormatters: [
-//     FilteringTextInputFormatter
-//         .digitsOnly
-//   ],
-//   decoration: InputDecoration(
-//     contentPadding:
-//         const EdgeInsets.symmetric(
-//             horizontal: 10,
-//             vertical: 12),
-//     prefix: Padding(
-//       padding: const EdgeInsets.only(
-//           right: 8),
-//       child: Text(
-//         countrydetails
-//                 .value?.callingCode
-//                 .toString() ??
-//             "",
-//         style: const TextStyle(
-//             color: Colors.black),
-//       ),
-//     ),
-//     hintText: "Enter Mobile Number",
-//     focusedBorder: OutlineInputBorder(
-//       borderSide: const BorderSide(
-//           color: Colors.grey),
-//       borderRadius:
-//           BorderRadius.circular(10),
-//     ),
-//     border: OutlineInputBorder(
-//       borderSide: const BorderSide(
-//           color: Colors.black),
-//       borderRadius:
-//           BorderRadius.circular(10),
-//     ),
-//   ),
-//   validator: (value) {
-//     if (value != null &&
-//         value.length != 10) {
-//       return 'Mobile number must be 10 digits long.';
-//     }
-//     return null;
-//   },
-//   onTapOutside: (event) {
-//     FocusScope.of(context).unfocus();
-//   },
-// ),

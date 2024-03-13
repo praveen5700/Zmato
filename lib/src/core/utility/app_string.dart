@@ -18,5 +18,14 @@ class AppString{
   static String privacy = "Privacy Policy";
   static String content = "Content Policies";
 
+  //otp verification page
+  static const skip = "Skip";
+  static String otpveri= "OTP Verification" ;
+  static String sendcode = 'We have sent a verfication code to ';
+  static String didnotget = "Didn't get the OTP? ";
+  static String resendsms =  'Resend SMS in 13s';
+  static String otperr = "The OTP entered is invalid/incorrect. Please try again";
+  static String goback = "Go back to login methods";
+
 
 }
