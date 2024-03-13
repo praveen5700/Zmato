@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../../../../core/utility/app_string.dart';
+import 'package:go_router/go_router.dart';
+import 'package:zomato/src/config/router/route_constant.dart';
+import '../../../core/utility/app_string.dart';
 
 class SpalshScreen extends StatefulWidget {
   const SpalshScreen({super.key});
@@ -11,8 +12,22 @@ class SpalshScreen extends StatefulWidget {
 
 class _SpalshScreenState extends State<SpalshScreen> {
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+     super.initState;
+    Future.delayed(const Duration(seconds: 3), () {
+      // data passing through path parameter
+     //context.go("/signup/4/praveen");
 
+     // data passing through queryparameter
+   //context.go('/signup?userName=praveen&id=2');
+
+   context.go(RouteConstants.signup);
+
+
+    });
+  }
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFE23744),
       body: Stack(
