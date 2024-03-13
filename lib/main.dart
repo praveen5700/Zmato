@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:zomato/src/presentation/bloc/authbloc/auth_bloc.dart';
-import 'package:zomato/src/presentation/ui/authScreen/screens/signup_screen.dart';
-
+import 'package:zomato/src/config/router/app_route.dart';
+import 'package:zomato/src/core/boc_list.dart';
 void main(){
   runApp(const MyApp());
 }
@@ -18,10 +17,9 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
-      providers:[
-      BlocProvider(create:(context) => AuthBloc())
-    ], child:const MaterialApp(
-      home: SignupScreen(),
+      providers:AppProviders.provider,
+      child: MaterialApp.router(
+      routerConfig: router,
     ));
   }
 }

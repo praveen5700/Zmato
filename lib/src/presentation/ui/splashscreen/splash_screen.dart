@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:zomato/src/utils/contants/app_constants.dart';
+import 'package:go_router/go_router.dart';
+import 'package:zomato/src/config/router/route_constant.dart';
+import '../../../core/utility/app_string.dart';
 
 class SpalshScreen extends StatefulWidget {
   const SpalshScreen({super.key});
@@ -9,6 +11,21 @@ class SpalshScreen extends StatefulWidget {
 }
 
 class _SpalshScreenState extends State<SpalshScreen> {
+  @override
+  void initState() {
+     super.initState;
+    Future.delayed(const Duration(seconds: 3), () {
+      // data passing through path parameter
+     //context.go("/signup/4/praveen");
+
+     // data passing through queryparameter
+   //context.go('/signup?userName=praveen&id=2');
+
+   context.go(RouteConstants.signup);
+
+
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,12 +38,12 @@ class _SpalshScreenState extends State<SpalshScreen> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Image.asset(
-               AppConstants.logo1,
+                AppString.logo1,
                 width: 200,
               ),
               const SizedBox(height: 20),
               Text(
-                AppConstants.carbon,
+                AppString.carbon,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
                     color: Color.fromARGB(179, 248, 248, 248),
@@ -35,7 +52,7 @@ class _SpalshScreenState extends State<SpalshScreen> {
               ),
         
                const SizedBox(height: 30),
-               Image.asset(AppConstants.logo2,width: 150,)
+               Image.asset(AppString.logo2,width: 150,)
             ],
           ),
         ),
@@ -45,7 +62,7 @@ class _SpalshScreenState extends State<SpalshScreen> {
             child: Opacity(
               opacity: 0.1,
               child: Image.asset(
-                AppConstants.spalshBirds,
+                AppString.spalshBirds,
                 width: 200,
               ),
             ),

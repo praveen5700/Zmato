@@ -5,10 +5,12 @@ import 'package:zomato/src/presentation/ui/authScreen/widgets/custom_mobile_text
 import 'package:zomato/src/presentation/ui/authScreen/widgets/flag_dropdown.dart';
 import 'package:zomato/src/presentation/ui/authScreen/widgets/rounded_elevated_button.dart';
 import 'package:zomato/src/presentation/ui/authScreen/widgets/signup_logo.dart';
-import 'package:zomato/src/utils/contants/app_constants.dart';
+import '../../../../core/utility/app_string.dart';
 
 class SignupScreen extends StatefulWidget {
-  const SignupScreen({super.key});
+  final String userId;
+  final String userName;
+  const SignupScreen({super.key, required this.userId, required this.userName});
 
   @override
   State<SignupScreen> createState() => _SignupScreenState();
@@ -37,26 +39,73 @@ class _SignupScreenState extends State<SignupScreen> {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint(widget.userId);
+    debugPrint(widget.userName);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Stack(
-        children: [
-          Column(
+      body: SingleChildScrollView(
+        //physics: ScrollBehavior._bouncingDesktopPhysics,
+        child: SizedBox(
+          height: size.height,
+          child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              ClipRRect(
-                  borderRadius: const BorderRadius.only(
-                    bottomLeft: Radius.circular(50.0),
-                    bottomRight: Radius.circular(50.0),
-                  ),
-                  child: Image.asset(AppConstants.zomatoimage)),
+              SizedBox(
+                child: Stack(
+                  children: [
+                    ClipRRect(
+                        borderRadius: const BorderRadius.only(
+                          bottomLeft: Radius.circular(50.0),
+                          bottomRight: Radius.circular(50.0),
+                        ),
+                        child: Image.asset(AppString.zomatoimage)),
+                    Positioned(
+                      right: 30,
+                      top: 50,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: const Color.fromARGB(128, 0, 0, 0),
+                        ),
+                        child: const Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 10.0, vertical: 4.0),
+                          child: Text(
+                            'Skip',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      left: 30,
+                      top: 50,
+                      child: Container(
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10.0),
+                          color: Color.fromARGB(177, 0, 0, 0),
+                        ),
+                        child: const Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 10.0, vertical: 4.0),
+                            child: Icon(
+                              Icons.sign_language,
+                              color: Colors.white,
+                            )),
+                      ),
+                    )
+                  ],
+                ),
+              ),
               const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Column(
                   children: [
                     Text(
-                      AppConstants.no1,
+                      AppString.no1,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                           fontSize: 28, fontWeight: FontWeight.bold),
@@ -73,7 +122,7 @@ class _SignupScreenState extends State<SignupScreen> {
                           ),
                         ),
                         Text(
-                          AppConstants.loginorsignup,
+                          AppString.loginorsignup,
                           style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
@@ -178,13 +227,13 @@ class _SignupScreenState extends State<SignupScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         SignUpLogo(
-                          imagePath: AppConstants.googleicon,
+                          imagePath: AppString.googleicon,
                         ),
                         SignUpLogo(
-                          imagePath: AppConstants.appleicon,
+                          imagePath: AppString.appleicon,
                         ),
                         SignUpLogo(
-                          imagePath: AppConstants.moreverticon,
+                          imagePath: AppString.moreverticon,
                         )
                       ],
                     ),
@@ -198,21 +247,21 @@ class _SignupScreenState extends State<SignupScreen> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Text(AppConstants.continuing,
+                    Text(AppString.continuing,
                         style: TextStyle(
                             fontSize: 14, color: Colors.grey.shade900)),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(AppConstants.terms,
+                        Text(AppString.terms,
                             style: TextStyle(
                                 fontSize: 10, color: Colors.grey.shade900)),
                         const SizedBox(width: 10),
-                        Text(AppConstants.privacy,
+                        Text(AppString.privacy,
                             style: TextStyle(
                                 fontSize: 10, color: Colors.grey.shade900)),
                         const SizedBox(width: 10),
-                        Text(AppConstants.content,
+                        Text(AppString.content,
                             style: TextStyle(
                                 fontSize: 10, color: Colors.grey.shade900)),
                       ],
@@ -221,8 +270,8 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
               ))
             ],
-          )
-        ],
+          ),
+        ),
       ),
     );
   }
@@ -236,55 +285,3 @@ class _SignupScreenState extends State<SignupScreen> {
     }
   }
 }
-
-// child: TextFormField(
-//   controller: mobileNumber,
-//   keyboardType: TextInputType.number,
-//   autovalidateMode: AutovalidateMode
-//       .onUserInteraction,
-//   inputFormatters: [
-//     FilteringTextInputFormatter
-//         .digitsOnly
-//   ],
-//   decoration: InputDecoration(
-//     contentPadding:
-//         const EdgeInsets.symmetric(
-//             horizontal: 10,
-//             vertical: 12),
-//     prefix: Padding(
-//       padding: const EdgeInsets.only(
-//           right: 8),
-//       child: Text(
-//         countrydetails
-//                 .value?.callingCode
-//                 .toString() ??
-//             "",
-//         style: const TextStyle(
-//             color: Colors.black),
-//       ),
-//     ),
-//     hintText: "Enter Mobile Number",
-//     focusedBorder: OutlineInputBorder(
-//       borderSide: const BorderSide(
-//           color: Colors.grey),
-//       borderRadius:
-//           BorderRadius.circular(10),
-//     ),
-//     border: OutlineInputBorder(
-//       borderSide: const BorderSide(
-//           color: Colors.black),
-//       borderRadius:
-//           BorderRadius.circular(10),
-//     ),
-//   ),
-//   validator: (value) {
-//     if (value != null &&
-//         value.length != 10) {
-//       return 'Mobile number must be 10 digits long.';
-//     }
-//     return null;
-//   },
-//   onTapOutside: (event) {
-//     FocusScope.of(context).unfocus();
-//   },
-// ),
