@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:zomato/src/utils/contants/app_constants.dart';
 
 import '../../../../core/utility/app_string.dart';
 
@@ -13,6 +12,7 @@ class SpalshScreen extends StatefulWidget {
 class _SpalshScreenState extends State<SpalshScreen> {
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: const Color(0xFFE23744),
       body: Stack(
