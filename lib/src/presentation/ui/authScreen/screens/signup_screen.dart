@@ -1,11 +1,14 @@
 import 'package:country_calling_code_picker/country.dart';
 import 'package:country_calling_code_picker/functions.dart';
 import 'package:flutter/material.dart';
+import 'package:zomato/src/core/utility/styles.dart';
+import 'package:zomato/src/presentation/ui/authScreen/screens/continue_with_email.dart';
 import 'package:zomato/src/presentation/ui/authScreen/widgets/custom_mobile_textfield.dart';
 import 'package:zomato/src/presentation/ui/authScreen/widgets/flag_dropdown.dart';
 import 'package:zomato/src/presentation/ui/authScreen/widgets/rounded_elevated_button.dart';
 import 'package:zomato/src/presentation/ui/authScreen/widgets/signup_logo.dart';
 import '../../../../core/utility/app_string.dart';
+import '../../../components/commonBottomSheet.dart';
 
 class SignupScreen extends StatefulWidget {
   final String userId;
@@ -48,6 +51,7 @@ class _SignupScreenState extends State<SignupScreen> {
           height: size.height,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
             children: [
               SizedBox(
                 child: Stack(
@@ -84,7 +88,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
-                          color: Color.fromARGB(177, 0, 0, 0),
+                          color: const Color.fromARGB(177, 0, 0, 0),
                         ),
                         child: const Padding(
                             padding: EdgeInsets.symmetric(
@@ -231,8 +235,13 @@ class _SignupScreenState extends State<SignupScreen> {
                         SignUpLogo(
                           imagePath: AppString.appleicon,
                         ),
-                        SignUpLogo(
-                          imagePath: AppString.moreverticon,
+                        InkWell(
+                          onTap: (){
+                            CustomBottomSheet.toShow(context, contentInBottomSheet());
+                          },
+                          child: SignUpLogo(
+                            imagePath: AppString.moreverticon,
+                          ),
                         )
                       ],
                     ),
@@ -267,7 +276,8 @@ class _SignupScreenState extends State<SignupScreen> {
                     )
                   ],
                 ),
-              ))
+              )),
+
             ],
           ),
         ),
@@ -283,4 +293,57 @@ class _SignupScreenState extends State<SignupScreen> {
       countrydetails.value = country;
     }
   }
+
+  Widget contentInBottomSheet(){
+    return Column(
+      children: [
+        Container(
+          padding: EdgeInsets.all(8),
+          decoration:  BoxDecoration(
+            color: Colors.white,
+            border: Border.all(color: Colors.grey.shade200),
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: const [
+              BoxShadow(color: Colors.grey, blurRadius: 2,),
+            ],
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset("assets/images/facebook.png",width: 30,),
+              SizedBox(width: 5,),
+              Text("Continue with Facebook",style: AppStyle.mediumTextStyle(size: 16),)
+            ],
+          ),
+        ),
+        SizedBox(height: 12,),
+        InkWell(
+          onTap: (){
+            Navigator.pop(context);
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>ContinueWithEmail()));
+          },
+          child: Container(
+            padding: EdgeInsets.all(8),
+            decoration:  BoxDecoration(
+              color: Colors.white,
+              border: Border.all(color: Colors.grey.shade200),
+              borderRadius: BorderRadius.circular(10),
+              boxShadow: const [
+                BoxShadow(color: Colors.grey, blurRadius: 2,),
+              ],
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset("assets/images/email.png",width: 30,),
+                SizedBox(width: 5,),
+                Text("Continue with Email",style: AppStyle.mediumTextStyle(size: 16),)
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
 }
