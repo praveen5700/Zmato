@@ -39,10 +39,11 @@ class _ContinueWithEmailState extends State<ContinueWithEmail> {
             children: [
               TextFormField(
               onChanged: (val){
-              if(val.trim().toString().length==1){
+              if(val.trim().toString().length==1||val.trim().toString().length==0){
                 setState(() {
 
                 });
+
               }
               },
               //  autofocus: true,
@@ -53,8 +54,9 @@ class _ContinueWithEmailState extends State<ContinueWithEmail> {
                 cursorColor: Colors.black,
                 decoration: InputDecoration(
                //   suffixIcon: Icon(Icons.abc),
-                  suffix: enterText.text.isNotEmpty?InkWell(onTap:(){enterText.clear();setState(() {
-
+                  suffix: enterText.text.isNotEmpty?InkWell(
+                      onTap:(){
+                    enterText.clear();setState(() {
                   });},child: CircleAvatar(backgroundColor:Colors.grey.shade400,radius:10,child: Icon(Icons.close,color: Colors.white,size: 14,))):Container(),
                     contentPadding: EdgeInsets.zero,
                     labelText: "Email or Username",
@@ -68,7 +70,7 @@ class _ContinueWithEmailState extends State<ContinueWithEmail> {
                RoundedButton(
                 width: double.infinity,
                 buttontxt: "Send OTP",
-                color: enterText.text.isEmpty?Colors.grey.shade500:Color(0xFFE23744),
+                color: enterText.text.toString().trim().isEmpty?Colors.grey.shade500:Color(0xFFE23744),
 
               )
             ],
