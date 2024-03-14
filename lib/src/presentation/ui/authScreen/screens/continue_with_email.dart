@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:zomato/src/core/utility/styles.dart';
 import 'package:zomato/src/core/utility/utilis.dart';
+import 'package:zomato/src/presentation/ui/authScreen/widgets/rounded_elevated_button.dart';
 
 
 class ContinueWithEmail extends StatefulWidget{
@@ -19,6 +20,7 @@ class _ContinueWithEmailState extends State<ContinueWithEmail> {
   }
   @override
   Widget build(BuildContext context) {
+    debugPrint("build");
     return Scaffold(
       appBar: AppBar(
         title: Text("Continue with Email",style: AppStyle.mediumTextStyle(size: 20),),
@@ -36,6 +38,14 @@ class _ContinueWithEmailState extends State<ContinueWithEmail> {
           child: Column(
             children: [
               TextFormField(
+              onChanged: (val){
+              if(val.trim().toString().length==1||val.trim().toString().length==0){
+                setState(() {
+
+                });
+
+              }
+              },
               //  autofocus: true,
                 onTapOutside: (event) {
                   FocusScope.of(context).unfocus();
@@ -43,12 +53,25 @@ class _ContinueWithEmailState extends State<ContinueWithEmail> {
                 controller: enterText,
                 cursorColor: Colors.black,
                 decoration: InputDecoration(
+               //   suffixIcon: Icon(Icons.abc),
+                  suffix: enterText.text.isNotEmpty?InkWell(
+                      onTap:(){
+                    enterText.clear();setState(() {
+                  });},child: CircleAvatar(backgroundColor:Colors.grey.shade400,radius:10,child: Icon(Icons.close,color: Colors.white,size: 14,))):Container(),
                     contentPadding: EdgeInsets.zero,
                     labelText: "Email or Username",
+                    labelStyle: AppStyle.normalTextStyle(color: Colors.grey.shade500,size: 16),
                     focusedBorder: UnderlineInputBorder(
                         borderSide: BorderSide(color: Colors.grey.shade600)
                     )
                 ),
+              ),
+              SizedBox(height: 30,),
+               RoundedButton(
+                width: double.infinity,
+                buttontxt: "Send OTP",
+                color: enterText.text.toString().trim().isEmpty?Colors.grey.shade500:Color(0xFFE23744),
+
               )
             ],
           ),
@@ -62,4 +85,5 @@ class _ContinueWithEmailState extends State<ContinueWithEmail> {
     enterText.dispose();
     super.dispose();
   }
+  
 }
