@@ -18,10 +18,11 @@ class _SpalshScreenState extends State<SpalshScreen> {
       // data passing through path parameter
      //context.go("/signup/4/praveen");
 
-     // data passing through queryparameter
-   //context.go('/signup?userName=praveen&id=2');
+    // data passing through queryparameter
+   context.go('/signup?userName=praveen&id=2');
+   //context.go(Uri(path: '/signup', queryParameters: {'userName': 'praveen',"id":"2"}).toString());
 
-   context.go(RouteConstants.signup);
+   //context.go(RouteConstants.signup);
 
 
     });
