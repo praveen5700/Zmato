@@ -20,6 +20,13 @@ class _SignupScreenState extends State<SignupScreen> {
   TextEditingController mobileNumber = TextEditingController();
   ValueNotifier<Country?> countrydetails = ValueNotifier(null);
 
+  @override
+  void dispose() {
+    super.dispose();
+    mobileNumber.dispose();
+    countrydetails.dispose();
+  }
+
   void initCountry() async {
     final list = await getCountries(context);
     debugPrint("Coutries length is ${list.length}");
@@ -39,16 +46,14 @@ class _SignupScreenState extends State<SignupScreen> {
 
   @override
   Widget build(BuildContext context) {
-    debugPrint(widget.userId);
+    debugPrint(widget.userId.toString());
     debugPrint(widget.userName);
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
-        //physics: ScrollBehavior._bouncingDesktopPhysics,
         child: SizedBox(
           height: size.height,
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
                 child: Stack(
@@ -85,7 +90,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
-                          color: Color.fromARGB(177, 0, 0, 0),
+                          color: const Color.fromARGB(177, 0, 0, 0),
                         ),
                         child: const Padding(
                             padding: EdgeInsets.symmetric(
@@ -240,12 +245,11 @@ class _SignupScreenState extends State<SignupScreen> {
                   ],
                 ),
               ),
-              Expanded(
-                  child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+              const Expanded(child: SizedBox()),
+              SafeArea(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(AppString.continuing,
                         style: TextStyle(
@@ -268,7 +272,7 @@ class _SignupScreenState extends State<SignupScreen> {
                     )
                   ],
                 ),
-              ))
+              )
             ],
           ),
         ),
