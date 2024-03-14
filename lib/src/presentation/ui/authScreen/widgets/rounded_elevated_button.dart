@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zomato/src/core/utility/styles.dart';
 
 class RoundedButton extends StatelessWidget {
   final double width;
@@ -29,9 +30,12 @@ class RoundedButton extends StatelessWidget {
                 ),
               )),
           onPressed: onpressed,
-          child: Text(
-            buttontxt,
-            style: const TextStyle(fontSize: 16, color: Colors.white),
+          child: Padding(
+            padding: const EdgeInsets.all(15),
+            child: Text(
+              buttontxt,
+              style:  AppStyle.mediumTextStyle(size: 18,color: Colors.white),
+            ),
           )),
     );
   }
