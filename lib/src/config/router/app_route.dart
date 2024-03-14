@@ -20,7 +20,7 @@ final router = GoRouter(
     //       String name = state.pathParameters['name'] ?? '';
     //       return SignupScreen(userId:id,userName: name,);
     //     })
-   GoRoute(
+  GoRoute(
   path: RouteConstants.signup,
   builder: (context, state) {
     String userName = state.uri.queryParameters['userName'] ?? '';
