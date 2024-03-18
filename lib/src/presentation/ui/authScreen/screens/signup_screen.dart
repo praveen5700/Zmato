@@ -1,8 +1,8 @@
 import 'package:country_calling_code_picker/country.dart';
 import 'package:country_calling_code_picker/functions.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:zomato/src/core/utility/styles.dart';
-import 'package:zomato/src/presentation/ui/authScreen/screens/continue_with_email.dart';
 import 'package:zomato/src/presentation/ui/authScreen/widgets/custom_mobile_textfield.dart';
 import 'package:zomato/src/presentation/ui/authScreen/widgets/flag_dropdown.dart';
 import 'package:zomato/src/presentation/ui/authScreen/widgets/rounded_elevated_button.dart';
@@ -238,7 +238,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         ),
                         InkWell(
                           onTap: (){
-                            CustomBottomSheet.toShow(context, contentInBottomSheet());
+                            CustomBottomSheet.toShow(context, contentInBottomSheet(context));
                           },
                           child: SignUpLogo(
                             imagePath: AppString.moreverticon,
@@ -295,11 +295,11 @@ class _SignupScreenState extends State<SignupScreen> {
     }
   }
 
-  Widget contentInBottomSheet(){
+  Widget contentInBottomSheet(BuildContext context){
     return Column(
       children: [
         Container(
-          padding: EdgeInsets.all(8),
+          padding:const EdgeInsets.all(8),
           decoration:  BoxDecoration(
             color: Colors.white,
             border: Border.all(color: Colors.grey.shade200),
@@ -312,19 +312,20 @@ class _SignupScreenState extends State<SignupScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset("assets/images/facebook.png",width: 30,),
-              SizedBox(width: 5,),
+              const SizedBox(width: 5),
               Text("Continue with Facebook",style: AppStyle.mediumTextStyle(size: 16),)
             ],
           ),
         ),
-        SizedBox(height: 12,),
+        const SizedBox(height: 12,),
         InkWell(
           onTap: (){
-            Navigator.pop(context);
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>ContinueWithEmail()));
+           Navigator.pop(context);
+           context.push('/continue_with_mail');
+
           },
           child: Container(
-            padding: EdgeInsets.all(8),
+            padding:const EdgeInsets.all(8),
             decoration:  BoxDecoration(
               color: Colors.white,
               border: Border.all(color: Colors.grey.shade200),
@@ -337,7 +338,7 @@ class _SignupScreenState extends State<SignupScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset("assets/images/email.png",width: 30,),
-                SizedBox(width: 5,),
+                const SizedBox(width: 5,),
                 Text("Continue with Email",style: AppStyle.mediumTextStyle(size: 16),)
               ],
             ),
