@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:zomato/src/core/utility/styles.dart';
 
 class RoundedButton extends StatelessWidget {
   final double width;
-  final String buttontxt;
+  final Widget buttontxt;
   final Color color;
   final VoidCallback? onpressed;
   final double borderRadius;
   const RoundedButton(
       {super.key,
-      this.buttontxt = "Continue",
+      this.buttontxt =const Text("Continue"),
       this.color = const Color(0xFFE23744),
       required this.width,
       this.onpressed,
@@ -19,6 +18,7 @@ class RoundedButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: width,
+      height: 40,
       child: ElevatedButton(
           style: ButtonStyle(
               backgroundColor: MaterialStateProperty.all(
@@ -30,13 +30,7 @@ class RoundedButton extends StatelessWidget {
                 ),
               )),
           onPressed: onpressed,
-          child: Padding(
-            padding: const EdgeInsets.all(15),
-            child: Text(
-              buttontxt,
-              style:  AppStyle.mediumTextStyle(size: 18,color: Colors.white),
-            ),
-          )),
+          child: buttontxt),
     );
   }
 }

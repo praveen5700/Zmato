@@ -2,6 +2,11 @@ sealed class AuthEvent{}
 
 class LoginWithMobileEvent extends AuthEvent{}
 
+class SendOTPonMailEvent extends AuthEvent{
+  final String email;
+  SendOTPonMailEvent(this.email);
+}
+
 class  VerifyMobileOtpEvent extends AuthEvent{
  final String otpCode;
 

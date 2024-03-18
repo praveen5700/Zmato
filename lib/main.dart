@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:zomato/src/config/router/app_route.dart';
 import 'package:zomato/src/core/boc_list.dart';
-void main(){
+import 'package:zomato/src/core/di/injector.dart';
+void main()async{
+  await initializeDependencies();
   runApp(const MyApp());
 }
 

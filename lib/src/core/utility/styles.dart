@@ -65,7 +65,6 @@ class AppStyle {
       fontFamily: AppFontsConstants.inter,
       fontWeight: FontWeight.w300,
       height: height,
-      // overflow: TextOverflow.ellipsis,
       decoration:
           underLineNeeded ? TextDecoration.underline : TextDecoration.none,
       color: color,

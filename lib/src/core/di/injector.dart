@@ -17,6 +17,12 @@ Future<void> initializeDependencies() async {
 
  injector.registerSingleton<AuthRepo>(AuthRepoImpl());
 
+
+  // ---------------- Bloc injectors ---------------- //
+  injector.registerFactory<AuthBloc>(() => AuthBloc(authRepo:injector()));
+
+ //injector.registerSingleton<AuthBloc>(AuthBloc(authRepo: injector()));
+
   // ---------------- UseCases ---------------- //
 
   // 1. Auth
@@ -25,9 +31,5 @@ Future<void> initializeDependencies() async {
 
   // 2. Profile
 
-
-
-  // ---------------- Bloc injectors ---------------- //
-  injector.registerFactory<AuthBloc>(() => AuthBloc(authRepo:injector()));
 
 }
